@@ -33,7 +33,7 @@ export const ShoppingPage = () => {
         <ProductCard product={product1} className="bg-dark">
           <ProductImage className="custom-image" />
           <ProductTitle title="Wenas" className="text-white" />
-          <ProductButton />
+          <ProductButton className="custom-buttoms" />
         </ProductCard>
       </div>
     </div>
