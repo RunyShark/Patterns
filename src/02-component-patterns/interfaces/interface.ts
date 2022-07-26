@@ -1,11 +1,14 @@
 import { Props as ProductCard } from "../components/ProductCard";
+import { CSSProperties } from "react";
 
 export interface PropsTitle {
   title?: string;
   className?: string;
+  style?: CSSProperties;
 }
 export interface PropsButtom {
   className?: string;
+  style?: CSSProperties;
 }
 
 export interface Product {
@@ -16,6 +19,7 @@ export interface Product {
 export interface ProductImage {
   img?: string;
   className?: string;
+  style?: CSSProperties;
 }
 export interface ProductButtonsProps {
   increaseBy: (value: number) => void;
