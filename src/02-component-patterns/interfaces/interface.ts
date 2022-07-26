@@ -22,7 +22,13 @@ export interface ProductContextProps {
 
 export interface ProductCardHOCProps {
   ({ children, product }: ProductCard): JSX.Element;
-  Title: ({ title }: { title?: string }) => JSX.Element;
-  Image: ({ img }: { img?: string }) => JSX.Element;
+  Title: ({
+    title,
+    className,
+  }: {
+    title?: string;
+    className?: string;
+  }) => JSX.Element;
+  Image: ({ img, className }: ProductImage) => JSX.Element;
   Buttons: ({ className }: { className?: string }) => JSX.Element;
 }
