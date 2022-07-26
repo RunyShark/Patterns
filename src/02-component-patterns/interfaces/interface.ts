@@ -7,3 +7,8 @@ export interface Product {
   title: string;
   img?: string;
 }
+
+export interface ProductButtonsProps {
+  increaseBy: (value: number) => void;
+  countet: number;
+}
