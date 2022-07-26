@@ -34,16 +34,12 @@ export const ProductButton = ({ countet, increaseBy }: ProductButtonsProps) => {
   );
 };
 
-export const ProductCard = ({ product }: Props) => {
-  const { countet, increaseBy } = useProduct();
-  const { title, img } = product;
+export const ProductCard = ({ children, product }: Props) => {
+  // const { countet, increaseBy } = useProduct();
+  // const { title, img } = product;
 
-  return (
-    <div className={productCard}>
-      <ProductImage img={img} />
-
-      <ProductTitle title={title} />
-      <ProductButton countet={countet} increaseBy={increaseBy} />
-    </div>
-  );
+  return <div className={productCard}>{children}</div>;
 };
+ProductCard.Title = ProductTitle;
+ProductCard.Image = ProductImage;
+ProductCard.Buttons = ProductButton;

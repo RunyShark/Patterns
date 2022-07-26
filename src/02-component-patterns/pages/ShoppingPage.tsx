@@ -1,17 +1,14 @@
-import { ProductCard } from "../components/ProductCard";
+import {
+  ProductCard,
+  ProductImage,
+  ProductTitle,
+  ProductButton,
+} from "../components/ProductCard";
 
 const product1 = {
   id: 1,
   title: "Cafelico",
   img: "./coffee-mug.png",
-};
-const product2 = {
-  id: 2,
-  title: "Pizza",
-};
-const product3 = {
-  id: 3,
-  title: "PCalabaz",
 };
 
 export const ShoppingPage = () => {
@@ -26,9 +23,11 @@ export const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product1} />
-        <ProductCard product={product2} />
-        <ProductCard product={product3} />
+        <ProductCard product={product1}>
+          <ProductCard.Image />
+          <ProductCard.Title title={"Cafe"} />
+          {/* <ProductCard.Buttons countet={countet} increaseBy={increaseBy} /> */}
+        </ProductCard>
       </div>
     </div>
   );
