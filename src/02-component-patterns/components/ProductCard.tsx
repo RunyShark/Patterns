@@ -1,35 +1,28 @@
+import { Provider } from "../context/ProductContext";
 import { useProduct } from "../hooks/useProduct";
-import { Props } from "../interfaces/interface";
+import { Product } from "../interfaces/interface";
+
 import style from "../styles/styles.module.css";
-import noImage from "../assets/no-image.jpg";
+import { ReactElement } from "react";
 
-export const ProductCard = ({ product }: Props) => {
+export interface Props {
+  product: Product;
+  children?: ReactElement | ReactElement[];
+  className?: string;
+}
+
+export const ProductCard = ({ children, product, className }: Props) => {
   const { countet, increaseBy } = useProduct();
-  const {
-    productCard,
-    productImg,
-    productDescription,
-    buttonsContainer,
-    buttonMinus,
-    countLabel,
-    buttonAdd,
-  } = style;
-  const { id, title, img } = product;
+  const { productCard } = style;
   return (
-    <div className={productCard}>
-      <img className={productImg} src={img ? img : noImage} alt="Coffee Mug" />
-
-      <span className={productDescription}>{title}</span>
-
-      <div className={buttonsContainer}>
-        <button className={buttonMinus} onClick={() => increaseBy(-1)}>
-          -
-        </button>
-        <div className={countLabel}>{countet}</div>
-        <button className={buttonAdd} onClick={() => increaseBy(1)}>
-          +
-        </button>
-      </div>
-    </div>
+    <Provider
+      value={{
+        countet,
+        increaseBy,
+        product,
+      }}
+    >
+      <div className={`${productCard} ${className}`}>{children}</div>
+    </Provider>
   );
 };
