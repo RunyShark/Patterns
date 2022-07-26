@@ -23,10 +23,22 @@ export const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product1}>
+        {/* <ProductCard product={product1}>
           <ProductCard.Image />
           <ProductCard.Title title={"Cafe"} />
-          {/* <ProductCard.Buttons countet={countet} increaseBy={increaseBy} /> */}
+          <ProductCard.Buttons countet={countet} increaseBy={increaseBy} />
+        </ProductCard> */}
+
+        <ProductCard product={product1}>
+          <ProductCard.Image />
+          <ProductCard.Title />
+          <ProductCard.Buttons />
+        </ProductCard>
+
+        <ProductCard product={product1}>
+          <ProductCard.Image />
+          <ProductCard.Title title="Chupapi" />
+          <ProductCard.Buttons />
         </ProductCard>
       </div>
     </div>

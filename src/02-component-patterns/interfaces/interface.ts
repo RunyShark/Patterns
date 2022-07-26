@@ -15,3 +15,9 @@ export interface ProductButtonsProps {
   increaseBy: (value: number) => void;
   countet: number;
 }
+
+export interface ProductContextProps {
+  countet: number;
+  increaseBy: (value: number) => void;
+  product: Product;
+}
