@@ -1,17 +1,23 @@
+import { CSSProperties, ReactElement } from "react";
 import { Provider } from "../context/ProductContext";
 import { useProduct } from "../hooks/useProduct";
 import { Product } from "../interfaces/interface";
 
 import style from "../styles/styles.module.css";
-import { ReactElement } from "react";
 
 export interface Props {
   product: Product;
   children?: ReactElement | ReactElement[];
   className?: string;
+  style?: CSSProperties;
 }
 
-export const ProductCard = ({ children, product, className }: Props) => {
+export const ProductCard = ({
+  children,
+  product,
+  className,
+  style: stile,
+}: Props) => {
   const { countet, increaseBy } = useProduct();
   const { productCard } = style;
   return (
@@ -22,7 +28,9 @@ export const ProductCard = ({ children, product, className }: Props) => {
         product,
       }}
     >
-      <div className={`${productCard} ${className}`}>{children}</div>
+      <div className={`${productCard} ${className}`} style={stile}>
+        {children}
+      </div>
     </Provider>
   );
 };
