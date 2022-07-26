@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 import style from "../styles/styles.module.css";
+import { PropsButtom } from "../interfaces/interface";
 
 const { buttonsContainer, buttonMinus, countLabel, buttonAdd } = style;
 
-export const ProductButton = ({ className }: { className?: string }) => {
+export const ProductButton = ({ className }: PropsButtom) => {
   const { countet, increaseBy } = useContext(ProductContext);
   return (
     <div className={`${buttonsContainer} ${className}`}>
