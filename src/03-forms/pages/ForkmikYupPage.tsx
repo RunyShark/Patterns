@@ -1,23 +1,9 @@
 import { useFormik } from "formik";
 import * as yup from "yup";
 import "../styles/styles.css";
-interface Validate {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  passwordDos: string;
-}
 
 export const ForkmikYupPage = () => {
-  const {
-    handleChange,
-    values: { firstName, lastName, email, password, passwordDos },
-    handleSubmit,
-    errors,
-    touched,
-    handleBlur,
-  } = useFormik({
+  const { handleSubmit, errors, touched, getFieldProps } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -59,10 +45,7 @@ export const ForkmikYupPage = () => {
         <input
           type="text"
           placeholder="First Name"
-          name="firstName"
-          onChange={handleChange}
-          value={firstName}
-          onBlur={handleBlur}
+          {...getFieldProps("firstName")}
         />
 
         {touched.firstName && errors.firstName && (
@@ -71,37 +54,21 @@ export const ForkmikYupPage = () => {
         <input
           type="text"
           placeholder="Last Name"
-          name="lastName"
-          onChange={handleChange}
-          value={lastName}
-          onBlur={handleBlur}
+          {...getFieldProps("lastName")}
         />
         {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          onChange={handleChange}
-          value={email}
-          onBlur={handleBlur}
-        />
+        <input type="email" placeholder="Email" {...getFieldProps("email")} />
         {touched.email && errors.email && <span>{errors.email}</span>}
         <input
           type="password"
           placeholder="Password"
-          name="password"
-          onChange={handleChange}
-          value={password}
-          onBlur={handleBlur}
+          {...getFieldProps("password")}
         />
         {touched.password && errors.password && <span>{errors.password}</span>}
         <input
           type="password"
           placeholder="Repeat password"
-          name="passwordDos"
-          onChange={handleChange}
-          value={passwordDos}
-          onBlur={handleBlur}
+          {...getFieldProps("passwordDos")}
         />
         {touched.passwordDos && errors.passwordDos && (
           <span>{errors.passwordDos}</span>
