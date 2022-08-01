@@ -7,7 +7,10 @@ import {
 } from "../index/index";
 
 import logo from "../logo.svg";
+
 //import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
+
+
 
 export const Navigation = () => {
   return (
@@ -43,9 +46,12 @@ export const Navigation = () => {
           </ul>
         </nav>
         <Routes>
+
           <Route path="/" element={<ForkmikComponents />} />
           <Route path="lazy2" element={<ForkmikComponentsAbstracion />} />
           <Route path="lazy3" element={<ForkmikYupPage />} />
+
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
