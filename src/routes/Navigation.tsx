@@ -1,9 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
 import {
-  RegisterPages,
-  ForkmikBasicPage,
+  ForkmikComponentsAbstracion,
   ForkmikYupPage,
+  ForkmikComponents,
 } from "../index/index";
 
 import logo from "../logo.svg";
@@ -21,7 +21,7 @@ export const Navigation = () => {
                 to="/register-page"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Register page
+                FormikComponents
               </NavLink>
             </li>
             <li>
@@ -29,7 +29,7 @@ export const Navigation = () => {
                 to="/lazy2"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                FormikBasic
+                Abstraccion
               </NavLink>
             </li>
             <li>
@@ -43,8 +43,8 @@ export const Navigation = () => {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<RegisterPages />} />
-          <Route path="lazy2" element={<ForkmikBasicPage />} />
+          <Route path="/" element={<ForkmikComponents />} />
+          <Route path="lazy2" element={<ForkmikComponentsAbstracion />} />
           <Route path="lazy3" element={<ForkmikYupPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
