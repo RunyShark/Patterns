@@ -3,18 +3,17 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import "../styles/styles.css";
 
 export const RegisterPages = () => {
-  const [input, setInput] = useState({
+  const [{ name, email, password, passwordDos }, setInput] = useState({
     name: "",
     email: "",
     password: "",
     passwordDos: "",
   });
-  const { name, email, password, passwordDos } = input;
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = target;
 
-    setInput({ ...input, [name]: value });
+    setInput((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -25,7 +24,7 @@ export const RegisterPages = () => {
     <div>
       <h1>Register pages</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <input
           type="text"
           placeholder="Name"
