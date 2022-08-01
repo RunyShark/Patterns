@@ -1,9 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
-import { RegisterPages } from "../index/index";
+import { RegisterPages, ForkmikBasicPage } from "../index/index";
 
 import logo from "../logo.svg";
 //import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
+
 export const Navigation = () => {
   return (
     <BrowserRouter>
@@ -39,7 +40,7 @@ export const Navigation = () => {
         </nav>
         <Routes>
           <Route path="/" element={<RegisterPages />} />
-          <Route path="lazy2" element={<h1>Lazy2</h1>} />
+          <Route path="lazy2" element={<ForkmikBasicPage />} />
           <Route path="lazy3" element={<h1>lazy3</h1>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
