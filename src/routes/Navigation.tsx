@@ -1,8 +1,17 @@
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
+import {
+  ForkmikComponentsAbstracion,
+  ForkmikYupPage,
+  ForkmikComponents,
+} from "../index/index";
 
 import logo from "../logo.svg";
-import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
+
+//import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
+
+
+
 export const Navigation = () => {
   return (
     <BrowserRouter>
@@ -12,10 +21,10 @@ export const Navigation = () => {
           <ul>
             <li>
               <NavLink
-                to="/"
+                to="/register-page"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                home
+                FormikComponents
               </NavLink>
             </li>
             <li>
@@ -23,7 +32,7 @@ export const Navigation = () => {
                 to="/lazy2"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Lazy2
+                Abstraccion
               </NavLink>
             </li>
             <li>
@@ -31,15 +40,18 @@ export const Navigation = () => {
                 to="/lazy3"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Lazy3
+                FormikYup
               </NavLink>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<ShoppingPage />} />
-          <Route path="lazy2" element={<h1>Lazy2</h1>} />
-          <Route path="lazy3" element={<h1>lazy3</h1>} />
+
+          <Route path="/" element={<ForkmikComponents />} />
+          <Route path="lazy2" element={<ForkmikComponentsAbstracion />} />
+          <Route path="lazy3" element={<ForkmikYupPage />} />
+
+
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
